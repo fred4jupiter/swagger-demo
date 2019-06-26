@@ -15,14 +15,9 @@ public class PersonService {
 
     @PostConstruct
     void init() {
-        Person john = new Person(1, "John", "Smith", 42);
-        persons.add(john);
-
-        Person jane = new Person(2, "Jane", "Jonhnson", 19);
-        persons.add(jane);
-
-        Person kate = new Person(3, "Kate", "Jones", 33);
-        persons.add(kate);
+        persons.add(new Person(1, "John", "Smith", 42));
+        persons.add(new Person(2, "Jane", "Jonhnson", 19));
+        persons.add(new Person(3, "Kate", "Jones", 33));
     }
 
     public List<Person> getAllPersons() {
@@ -32,7 +27,7 @@ public class PersonService {
     public Person getPersonById(Integer id) {
         return this.persons
                 .stream()
-                .filter(person -> person.getId() == id)
+                .filter(person -> person.getId().equals(id))
                 .findFirst()
                 .orElse(null);
     }
@@ -48,11 +43,6 @@ public class PersonService {
     }
 
     public void deletePerson(int id) {
-        for (Person person : this.persons) {
-            if (person.getId() == id) {
-                this.persons.remove(person);
-                return;
-            }
-        }
+        this.persons.removeIf(person -> person.getId().equals(id));
     }
 }
