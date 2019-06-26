@@ -27,7 +27,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("de.fred4jupiter.swagger.api"))
-                .paths(PathSelectors.ant("/v2/**"))
+                .paths(PathSelectors.ant("/v1/**"))
                 .build()
                 .apiInfo(getApiInfo());
     }

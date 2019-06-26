@@ -45,4 +45,11 @@ public class PersonService {
     public void deletePerson(int id) {
         this.persons.removeIf(person -> person.getId().equals(id));
     }
+
+    public void updatePerson(Person person) {
+        Person updatePerson = getPersonById(person.getId());
+        updatePerson.setFirstName(person.getFirstName());
+        updatePerson.setLastName(person.getLastName());
+        updatePerson.setAge(person.getAge());
+    }
 }

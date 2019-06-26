@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v2/persons")
+@RequestMapping("/v1/persons")
 @Api(tags = "persons")
 public class PersonController {
 
@@ -50,4 +50,9 @@ public class PersonController {
         return personService.createPerson(person);
     }
 
+    @PutMapping
+    @ApiOperation("Updates a person.")
+    public void updatePerson(@ApiParam("Person to be updated.") @Valid @RequestBody Person person) {
+        personService.updatePerson(person);
+    }
 }
