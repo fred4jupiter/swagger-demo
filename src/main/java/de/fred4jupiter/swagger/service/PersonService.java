@@ -1,6 +1,6 @@
 package de.fred4jupiter.swagger.service;
 
-import de.fred4jupiter.swagger.api.Person;
+import de.fred4jupiter.swagger.api.person.Person;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;

@@ -1,5 +1,6 @@
-package de.fred4jupiter.swagger.api;
+package de.fred4jupiter.swagger.api.person;
 
+import de.fred4jupiter.swagger.api.common.ResourceNotFoundException;
 import de.fred4jupiter.swagger.service.PersonService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;

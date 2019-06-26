@@ -1,4 +1,4 @@
-package de.fred4jupiter.swagger.api;
+package de.fred4jupiter.swagger.api.common;
 
 import java.util.Date;
 

@@ -1,7 +1,5 @@
-package de.fred4jupiter.swagger;
+package de.fred4jupiter.swagger.api.common;
 
-import de.fred4jupiter.swagger.api.ErrorDetails;
-import de.fred4jupiter.swagger.api.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

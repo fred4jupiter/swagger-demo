@@ -1,4 +1,4 @@
-package de.fred4jupiter.swagger.api;
+package de.fred4jupiter.swagger.api.person;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
