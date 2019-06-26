@@ -1,12 +1,11 @@
 package de.fred4jupiter.swagger.api;
 
 import de.fred4jupiter.swagger.service.PersonService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,8 +24,17 @@ public class PersonController {
 
     @GetMapping("/{id}")
     @ApiOperation("${personcontroller.getpersonbyid}")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully retrieved Person"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
+    })
     public Person getPersonById(@ApiParam(name = "id", value = "Id of the person to be obtained. Cannot be empty.", required = true) @PathVariable Integer id) {
-        return personService.getPersonById(id);
+        Person person = personService.getPersonById(id);
+        if (person == null) {
+            throw new ResourceNotFoundException("person with id=" + id + " could not be found!");
+        }
+
+        return person;
     }
 
     @DeleteMapping("/{id}")
@@ -37,7 +45,7 @@ public class PersonController {
 
     @PostMapping
     @ApiOperation("${personcontroller.createperson}")
-    public Person createPerson(@ApiParam("Person information for a new person to be created.") @RequestBody Person person) {
+    public Person createPerson(@ApiParam("Person information for a new person to be created.") @Valid @RequestBody Person person) {
         return personService.createPerson(person);
     }
 
