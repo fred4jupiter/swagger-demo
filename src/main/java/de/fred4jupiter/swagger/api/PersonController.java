@@ -10,32 +10,32 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v2/persons/")
-@Api("persons")
+@RequestMapping("/v2/persons")
+@Api(value = "persons", produces = "application/json")
 public class PersonController {
 
     @Autowired
     private PersonService personService;
 
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    @ApiOperation("${personcontroller.getallpersons}")
+    @GetMapping
+    @ApiOperation(value = "${personcontroller.getallpersons}")
     public List<Person> getAllPersons() {
         return personService.getAllPersons();
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/{id}", produces = "application/json")
+    @GetMapping("/{id}")
     @ApiOperation("${personcontroller.getpersonbyid}")
     public Person getPersonById(@ApiParam(name = "id", value = "Id of the person to be obtained. Cannot be empty.", required = true) @PathVariable Integer id) {
         return personService.getPersonById(id);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, path = "/{id}")
+    @DeleteMapping("/{id}")
     @ApiOperation("${personcontroller.deleteperson}")
     public void deletePerson(@ApiParam(name = "id", value = "Id of the person to be deleted. Cannot be empty.", required = true) @PathVariable Integer id) {
         personService.deletePerson(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
+    @PostMapping
     @ApiOperation("${personcontroller.createperson}")
     public Person createPerson(@ApiParam("Person information for a new person to be created.") @RequestBody Person person) {
         return personService.createPerson(person);
