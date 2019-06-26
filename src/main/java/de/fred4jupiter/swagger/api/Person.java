@@ -10,7 +10,7 @@ public class Person {
 
     @NotNull
     @ApiModelProperty(notes = "${person.id}", example = "1", required = true, position = 0)
-    private int id;
+    private Integer id;
 
     @NotBlank
     @Size(min = 1, max = 20)
@@ -18,19 +18,18 @@ public class Person {
     private String firstName;
 
     @NotBlank
-    @Pattern(regexp = "[SOME REGULAR EXPRESSION]")
     @ApiModelProperty(notes = "${person.lastlame}", example = "Doe", required = true, position = 2)
     private String lastName;
 
     @Min(0)
     @Max(100)
     @ApiModelProperty(notes = "${person.age}", example = "42", position = 3)
-    private int age;
+    private Integer age;
 
     public Person() {
     }
 
-    public Person(int id, String firstName, String lastName, int age) {
+    public Person(Integer id, String firstName, String lastName, Integer age) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -53,19 +52,19 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 }

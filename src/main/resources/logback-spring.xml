@@ -8,8 +8,6 @@
         </encoder>
     </appender>
 
-    <logger name="io.swagger.models.parameters.AbstractSerializableParameter" level="ERROR"/>
-
     <logger name="de.fred4jupiter.swagger" level="DEBUG" />
 
     <root level="INFO">

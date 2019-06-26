@@ -11,7 +11,7 @@ import java.util.OptionalInt;
 @Service
 public class PersonService {
 
-    private List<Person> persons = new ArrayList<>();
+    private final List<Person> persons = new ArrayList<>();
 
     @PostConstruct
     void init() {
@@ -29,7 +29,7 @@ public class PersonService {
         return this.persons;
     }
 
-    public Person getPersonById(int id) {
+    public Person getPersonById(Integer id) {
         return this.persons
                 .stream()
                 .filter(person -> person.getId() == id)
@@ -43,6 +43,7 @@ public class PersonService {
             person.setId(maxId.getAsInt() + 1);
         }
 
+        this.persons.add(person);
         return person;
     }
 

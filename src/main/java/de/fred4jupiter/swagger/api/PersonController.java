@@ -25,13 +25,13 @@ public class PersonController {
 
     @RequestMapping(method = RequestMethod.GET, path = "/{id}", produces = "application/json")
     @ApiOperation("${personcontroller.getpersonbyid}")
-    public Person getPersonById(@ApiParam("Id of the person to be obtained. Cannot be empty.") @PathVariable int id) {
+    public Person getPersonById(@ApiParam(name = "id", value = "Id of the person to be obtained. Cannot be empty.", required = true) @PathVariable Integer id) {
         return personService.getPersonById(id);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, path = "/{id}")
     @ApiOperation("${personcontroller.deleteperson}")
-    public void deletePerson(@ApiParam("Id of the person to be deleted. Cannot be empty.") @PathVariable int id) {
+    public void deletePerson(@ApiParam(name = "id", value = "Id of the person to be deleted. Cannot be empty.", required = true) @PathVariable Integer id) {
         personService.deletePerson(id);
     }
 
