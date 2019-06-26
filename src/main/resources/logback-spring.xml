@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You can override this configuration from external via JVM variable like so:  java -Dlogging.config=logback.xml -jar intplat-camunda.jar -->
+<configuration>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d %p [%c] - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="io.swagger.models.parameters.AbstractSerializableParameter" level="ERROR"/>
+
+    <logger name="de.fred4jupiter.swagger" level="DEBUG" />
+
+    <root level="INFO">
+        <appender-ref ref="console"/>
+    </root>
+</configuration>
