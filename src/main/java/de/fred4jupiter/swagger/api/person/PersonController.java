@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v2/persons")
-@Api(value = "persons", produces = "application/json")
+@Api(tags = "persons")
 public class PersonController {
 
     @Autowired
