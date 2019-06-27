@@ -12,4 +12,5 @@ spring:
         url: http://localhost:8180
 
 logging:
+  # spring boot admin needs to know where to find the log file
   file: ${user.home}/swagger-demo.log
