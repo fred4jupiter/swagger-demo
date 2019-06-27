@@ -4,7 +4,7 @@
     <appender name="rollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${user.home}/swagger-demo.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>%d %p [%c] - %m%n</pattern>
+            <pattern>%highlight(%d) %highlight(%p) %highlight([%c]) - %msg %n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${user.home}/archived/swagger-demo%d{yyyy-MM-dd}_%i.log</fileNamePattern>
@@ -17,7 +17,7 @@
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d %p [%c] - %m%n</pattern>
+            <pattern>%highlight(%d) %highlight(%p) %highlight([%c]) - %msg %n</pattern>
         </encoder>
     </appender>
 
