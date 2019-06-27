@@ -3,6 +3,14 @@ management:
     web:
       exposure:
         include: "*"
+  info:
+    build:
+      enabled: true
+    defaults:
+      enabled: true
+    git:
+      enabled: true
+      mode: simple
 spring:
   application:
     name: swagger-demo
