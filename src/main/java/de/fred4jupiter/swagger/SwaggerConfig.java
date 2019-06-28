@@ -25,6 +25,7 @@ public class SwaggerConfig {
     @Bean
     public Docket apiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("swagger-demo-v1")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("de.fred4jupiter.swagger.api"))
                 .paths(PathSelectors.ant("/v1/**"))
